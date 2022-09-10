@@ -1,18 +1,23 @@
+
+import { accessData, SaveData } from "../../Utils/app.LoaclStorage"
 import { ADD, GET_FAILURE, GET_LOADING, GET_SUCESS, POST_FAILURE, POST_LOADING, POST_SUCESS, REDUCE } from "./actionTypeCreater"
 
 const initialState={
-   count:10,
+   count: accessData('Counter')||0,
    IsLoading: false,
    todos:[],
    IsError: false,
 }
-const Reducer = (oldstate=initialState,action) => {
+export const Reducer = (oldstate=initialState,action) => {
  switch(action.type){
    case ADD:
       let tempcount = oldstate.count + action.payload >= 25 ?25: oldstate.count + action.payload
+      SaveData("Counter",tempcount)
       return ({...oldstate,count: tempcount})
+     
    
    case REDUCE:{
+      SaveData("Counter",oldstate.count - action.payload)
       return ({...oldstate,count:oldstate.count - action.payload})
    }
    case GET_LOADING:
@@ -37,5 +42,3 @@ const Reducer = (oldstate=initialState,action) => {
     default: return oldstate;
  }
 }
-
-export default Reducer

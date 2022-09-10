@@ -19,6 +19,11 @@
       "title": "useSelector",
       "status": false,
       "id": 4
+    },
+    {
+      "title": "redux-config",
+      "status": false,
+      "id": 5
     }
   ]
 }
