@@ -25,15 +25,15 @@ function App() {
      .catch((e)=>AUTH_LOGIN_FAILURE(e))
     }
   }
-  console.log(token)
   return (
     <div className="App">
       <Counter/>
-      <input type="email" placeholder="email" value={userEmail} onChange={(e)=>setuserEmail(e.target.value)}/>
+      <input type="email" placeholder="eve.holt@reqres.in" value={userEmail} onChange={(e)=>setuserEmail(e.target.value)}/>
       <br/>
       <input type="password" placeholder="password" value={userPassword} onChange={(e)=>SetuserPassword(e.target.value)}/>
       <br/>
       <button onClick={handelLogin}>Login</button>
+      <h4>token: {token}</h4>
       {IsAuth? <Todos/>:""}
     </div>
   );

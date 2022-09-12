@@ -12,10 +12,10 @@ const initialState={
        return{...oldstate,IsAuthLoading: true}
     
     case AUTH_SUCESS:{
-       return({...oldstate,token:action.payload,IsAuthLoading:false,IsAuth:true})
+       return{...oldstate,token:action.payload,IsAuthLoading:false,IsAuth:true}
     }
     case AUTH_FAILURE:{
-       return({...oldstate,IsAuthLoading:false,IsAuth:false,token:""})
+       return{...oldstate,IsAuthLoading:false,IsAuth:false,token:""}
     }
     default: return oldstate;
  }
